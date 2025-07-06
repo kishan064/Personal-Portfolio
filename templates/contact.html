@@ -1,0 +1,36 @@
+{% extends "layout.html"%} {% block content%} {% for cont_id ,cont_data in
+cont.items() %}
+<div>
+  <table>
+    <tr>
+      <td>Email Id:</td>
+      <td>{{ cont_data['email']}}</td>
+    </tr>
+    <tr>
+      <td>GitHub:</td>
+      <td>
+        <a href="{{ cont_data['github'] }}" target="_blank"
+          >{{ cont_data['github'] }}</a>
+        
+      </td>
+    </tr>
+
+    <tr>
+      <td>Phone.No:</td>
+      <td>{{ cont_data['Phone.No'] }}</td>
+    </tr>
+
+     <tr>
+      <td>Linkedin:</td>
+      <td>
+        <a href="{{ cont_data['linkedin'] }}" target="_blank"
+          >{{ cont_data['linkedin'] }}</a>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+{% endfor %} {% endblock content%}
+
+<!-- we can enhance this page to look more professional using claudeai -->

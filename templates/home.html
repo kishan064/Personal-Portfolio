@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <section class="home-section">
+    <div class="description">
+      <h2>Hello,I'm</h2>
+      <h1 class="big-name">Kishan Kumar Sahu</14>
+      <p class="role-line">  An aspiring <span class="highlight-role">Information Security Analyst</span> </p>
+      
+      <p>A self-driven and meticulous B-tech student. Skilled in Java and Python
+            and proficient in English speaking. Seeking opportunities in the field of
+            Cybersecurity & Ethical Hacking. Hands-on experience with
+            cybersecurity tools like Wireshark, Nmap, Metasploit, and Kali Linux.
+            Adept at learning new technologies and staying updated with emerging
+            cyber threats.
+       </p>
+      <a href="{{ url_for('static', filename='cv/Kishan_CV.pdf') }}" class="download-btn" download>📄 Download CV</a>
+    </div>
+    <img src="{{ url_for('static', filename='images/kishan_kumar.jpeg') }}" alt="Profile" class="profile-img">
+  </section>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="projects">
+  <div class="container">
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="project-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <h3 class="project-title">ML Based Heart Health Monitoring System</h3>
+        <p class="project-description">
+          This project is a ML-based web application developed using Python, Streamlit, and Scikit-learn, designed to predict the presence of heart disease in patients based on their medical data.
+        </p>
+        <a href="https://github.com/kishan064/Heart-Health-Monitoring-System/blob/main/heart_disease_data.csv" target="_blank" class="project-link">View Project</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <h3 class="project-title">E-Commerce Website (ShoeVerse)</h3>
+        <p class="project-description">
+          Full-stack shopping site using Flask and SQLite with features like wishlist, cart, and secure login.
+        </p>
+        <a href="https://kishan064.pythonanywhere.com/" target="_blank" class="project-link">View Project</a>
+      </div>
+
+      
+
+      <!-- Add more projects as needed -->
+      
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock content %}
