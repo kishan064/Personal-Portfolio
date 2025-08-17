@@ -1,36 +1,54 @@
-{% extends "layout.html"%} {% block content%} {% for cont_id ,cont_data in
-cont.items() %}
-<div>
-  <table>
-    <tr>
-      <td>Email Id:</td>
-      <td>{{ cont_data['email']}}</td>
-    </tr>
-    <tr>
-      <td>GitHub:</td>
-      <td>
-        <a href="{{ cont_data['github'] }}" target="_blank"
-          >{{ cont_data['github'] }}</a>
-        
-      </td>
-    </tr>
+{% extends "layout.html" %}
+{% block content %}
 
-    <tr>
-      <td>Phone.No:</td>
-      <td>{{ cont_data['Phone.No'] }}</td>
-    </tr>
-
-     <tr>
-      <td>Linkedin:</td>
-      <td>
-        <a href="{{ cont_data['linkedin'] }}" target="_blank"
-          >{{ cont_data['linkedin'] }}</a>
-      </td>
-    </tr>
-
-  </table>
+<section class="contact-section fade-in">
+  <div class="contact-card">
+    <h2>Get in Touch</h2>
+    <div class="top-contact-icons">
+  {% for cont_id, cont_data in cont.items() %}
+    <div class="hover-expand-link">
+      <i data-lucide="mail"></i>
+      <span class="hover-text">{{ cont_data['email'] }}</span>
+    </div>
+    <div class="hover-expand-link">
+      <i data-lucide="phone"></i>
+      <span class="hover-text">{{ cont_data['Phone.No'] }}</span>
+    </div>
+  {% endfor %}
 </div>
 
-{% endfor %} {% endblock content%}
+    <div class="contact-columns">
 
-<!-- we can enhance this page to look more professional using claudeai -->
+      <!-- Contact Form -->
+      <form action="/submit_contact" method="POST" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="last_name" required>
+          </div>
+        </div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+
+{% endblock content %}

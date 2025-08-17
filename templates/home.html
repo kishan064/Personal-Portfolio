@@ -1,23 +1,61 @@
 {% extends "layout.html" %}
-
 {% block content %}
+<section class="home-section">
+  <div class="description">
+    <h2>Hello, I'm</h2>
+    <h1 class="big-name">Kishan Kumar Sahu</h1>
 
-  <section class="home-section">
-    <div class="description">
-      <h2>Hello,I'm</h2>
-      <h1 class="big-name">Kishan Kumar Sahu</14>
-      <p class="role-line">  An aspiring <span class="highlight-role">Information Security Analyst</span> </p>
-      
-      <p>A self-driven and meticulous B-tech student. Skilled in Java and Python
-            and proficient in English speaking. Seeking opportunities in the field of
-            Cybersecurity & Ethical Hacking. Hands-on experience with
-            cybersecurity tools like Wireshark, Nmap, Metasploit, and Kali Linux.
-            Adept at learning new technologies and staying updated with emerging
-            cyber threats.
-       </p>
-      <a href="{{ url_for('static', filename='cv/Kishan_CV.pdf') }}" class="download-btn" download>📄 Download CV</a>
-    </div>
-    <img src="{{ url_for('static', filename='images/kishan_kumar.jpeg') }}" alt="Profile" class="profile-img">
-  </section>
+    <p class="role-line">An aspiring <span class="highlight-role" id="animated-role">Information Security Analyst</span></p>
 
+    <p>
+      "A passionate Full Stack Web Developer who enjoys turning ideas into interactive and functional web experiences. Also deeply interested in cybersecurity and information gathering, with a strong drive to explore how systems work and how they can be protected."
+    </p>
+
+    <!-- Social Icons -->
+<div class="social-icons">
+  <a href="https://github.com/kishan064" target="_blank" class="icon github" aria-label="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/kishan-kumar-sahu-9127b92b9/" target="_blank" class="icon linkedin" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
+
+
+    <a href="{{ url_for('static', filename='cv/Kishan Kumar Sahu Resume (2).pdf') }}" class="download-btn" download>
+      📄 Download CV
+    </a>
+  </div>
+
+  <img src="{{ url_for('static', filename='images/kishan_kumar.jpeg') }}" alt="Profile" class="profile-img">
+</section>
+
+<!-- Animation Script -->
+<script>
+  const roles = [ "Full Stack Web Developer","Information Security Analyst",];
+  let roleIndex = 0;
+  const roleElement = document.getElementById("animated-role");
+
+  function typeRole() {
+    const fullText = roles[roleIndex];
+    let i = 0;
+
+    function typing() {
+      if (i <= fullText.length) {
+        roleElement.textContent = fullText.substring(0, i);
+        i++;
+        setTimeout(typing, 100);
+      } else {
+        setTimeout(() => {
+          roleIndex = (roleIndex + 1) % roles.length;
+          typeRole();
+        }, 2000);
+      }
+    }
+
+    typing();
+  }
+
+  window.onload = typeRole;
+</script>
 {% endblock %}
